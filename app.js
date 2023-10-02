@@ -3,6 +3,7 @@ const app = express();
 const config = require("./config");
 const loaders = require("./loaders");
 const errorHandler = require("./middlewares/error");
+const routes = require("./routes");
 
 // Load config files  , dotenv
 config();
@@ -13,6 +14,8 @@ loaders();
 // Parse body json
 app.use(express.json());
 
+// Routes
+app.use("/authenticate",routes.auth);
 
 // Global Error Handler :: must always be at the bottom
 app.use(errorHandler)
