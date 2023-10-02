@@ -1,4 +1,4 @@
-const ErrorResponse = require("../utils/errorResponse");
+const {ErrorResponse} = require("../utils/errorResponse");
 const { saveLogToMongoDB } = require("../utils/logger");
 
 const errorHandler = (err, req, res, next) => {
