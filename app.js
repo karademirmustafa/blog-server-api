@@ -2,8 +2,11 @@ const express = require("express");
 const app = express();
 const config = require("./config");
 const loaders = require("./loaders");
-const errorHandler = require("./middlewares/error");
 const routes = require("./routes");
+
+
+const loggerMiddleware = require("./middlewares/logger")
+const errorHandler = require("./middlewares/error");
 
 // Load config files  , dotenv
 config();
@@ -13,6 +16,8 @@ loaders();
 
 // Parse body json
 app.use(express.json());
+// Logger 
+app.use(loggerMiddleware)
 
 // Routes
 app.use("/authenticate",routes.auth);
