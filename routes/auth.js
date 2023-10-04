@@ -10,6 +10,7 @@ const authSchemas = require("../validations/auth");
 const authController = require("../controllers/auth");
 
 router.route("/register").post(validateSchema(authSchemas.registerSchema),authController.register);
+router.route("/login").post(validateSchema(authSchemas.loginSchema),authController.login);
 
 
 
